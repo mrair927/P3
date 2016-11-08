@@ -22,7 +22,11 @@ class LipsumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+      return view('lipsum.create');
 
+    }
 
     /**
      * Store a newly created resource in storage.
