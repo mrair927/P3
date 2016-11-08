@@ -22,11 +22,7 @@ class LipsumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-      return view('lipsum.create');
 
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,7 +39,7 @@ class LipsumController extends Controller
 
       $lipsum = new \joshtronic\LoremIpsum();
       $para = $lipsum->paragraphs($request->input('numParagraphs'));
-        return ($para);
+        return view ('limsum.show')->with('paragraphs', $para);
 
     }
 
