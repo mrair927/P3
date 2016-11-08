@@ -28,12 +28,7 @@ class LipsumController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Request $request)
     {
 
@@ -43,16 +38,10 @@ class LipsumController extends Controller
 
       $lipsum = new \joshtronic\LoremIpsum();
       $para = $lipsum->paragraphs($request->input('numParagraphs'));
-        return view ('limsum.show')->with('paragraphs', $para);
+        return view ('lipsum.show')->with('paragraphs', $para);
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
 
 }
