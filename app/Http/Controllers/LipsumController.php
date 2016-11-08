@@ -7,15 +7,13 @@ use Illuminate\Http\Request;
 
 class LipsumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      return 'vhfajfhdsj';
-    }
+public function index()
+{
+
+  return view ('lipsums.show'  );
+
+}
+
 
 
     public function create()
@@ -28,11 +26,11 @@ class LipsumController extends Controller
     public function show(Request $request)
     {
 
-      $this->validate($request, ['numberParagraphs' => 'required|integer|min:1|max:15',]);
+      $this->validate($request, ['numberParagraphs' => 'required|numeric|max:9']);
 			$numberParagraphs = $request->input('numberParagraphs');
-		$lipsum = new joshtronic\LoremIpsum();
+		$lipsum = new \joshtronic\LoremIpsum();
 			$paragraphs = $lipsum->paragraphs($numberParagraphs, 'p');
-			return view('text')->with('paragraphs', $paragraphs);
+			return view('lipsum.show')->with('paragraphs', $paragraphs);
     }
 
 
