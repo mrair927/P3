@@ -9,4 +9,5 @@
     @endforeach
     </blockquote>
 
+    <a href='/lipsum/create'> Generate more text!...</a>
 @endsection

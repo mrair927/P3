@@ -24,5 +24,5 @@ Route::post('/lipsums', 'LipsumController@show')->name('lipsums.show');
 
 
 ## Generates routes for users controller
-Route::get('/users', 'UsersController@index')->name('users.index');
-Route::post('/users', 'UsersController@show')->name('users.show');
+Route::get('/users', 'UserController@index')->name('users.index');
+Route::post('/users', 'UserController@show')->name('users.show');

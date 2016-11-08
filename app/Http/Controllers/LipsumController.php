@@ -14,14 +14,10 @@ class LipsumController extends Controller
      */
     public function index()
     {
-      return view('lipsum.show');
+      return 'vhfajfhdsj';
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
       return view('lipsum.create');
@@ -32,14 +28,11 @@ class LipsumController extends Controller
     public function show(Request $request)
     {
 
-      //validate input
-      $this->validate($request, ['numParagraphs' => 'required|numeric|max:9']);
-
-
-      $lipsum = new \joshtronic\LoremIpsum();
-      $para = $lipsum->paragraphs($request->input('numParagraphs'));
-        return view ('lipsum.show')->with('paragraphs', $para);
-
+      $this->validate($request, ['numberParagraphs' => 'required|integer|min:1|max:15',]);
+			$numberParagraphs = $request->input('numberParagraphs');
+		$lipsum = new joshtronic\LoremIpsum();
+			$paragraphs = $lipsum->paragraphs($numberParagraphs, 'p');
+			return view('text')->with('paragraphs', $paragraphs);
     }
 
 
