@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @parent
+    <a href='/'>Back to Home</a>
 
 
         <blockquote>

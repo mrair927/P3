@@ -28,7 +28,7 @@ public function index()
 
 
           $this->validate($request, [
-            'numberParagraphs' => 'required|numeric|min:1|max:99',
+            'numberParagraphs' => 'required|numeric|min:1|max:9',
             ]);
           $data = $request['numberParagraphs'];
           $generator = new LoremIpsum\Generator();
