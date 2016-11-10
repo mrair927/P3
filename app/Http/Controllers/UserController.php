@@ -8,19 +8,14 @@ use Faker\Factory as Faker;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
 
 
 
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for generating new users.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -29,10 +24,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *controller to generate and show users
      */
     public function show(Request $request)
     {

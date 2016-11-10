@@ -14,13 +14,20 @@ public function index()
 
 }
 
-
+/**
+ * Show the form for generating lipsum text.
+ *
+ */
 
     public function create()
     {
       return view('lipsum.create');
 
     }
+
+    /**
+     *controller to generate and show lipsum text
+     */
 
 
     public function show(Request $request)
