@@ -1,13 +1,11 @@
-@extends('lipsum.index')
+@extends('layouts.master')
 
 @section('content')
     @parent
 
-    <blockquote>
-    @foreach ($paragraphs as $paragraph)
-        <p>{{ $paragraph }}</p>
-    @endforeach
-    </blockquote>
 
-    <a href='/lipsum/create'> Generate more text!...</a>
+        <blockquote>
+        <?php echo implode('<p>', $paragraphs); ?>
+    </blockquote>
+    <a href='/lipsums/create'> Generate more text!...</a>
 @endsection

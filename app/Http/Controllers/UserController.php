@@ -3,6 +3,8 @@
 namespace P3\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Faker\Factory as Faker;
+
 
 class UserController extends Controller
 {
@@ -11,10 +13,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,6 +25,7 @@ class UserController extends Controller
     public function create()
     {
         //
+            return view('user.create');
     }
 
     /**
@@ -32,53 +34,30 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function show(Request $request)
     {
-        //
+      $this->validate($request, [
+      'num_users' => 'required|numeric|min:1|max:50',
+      ]);
+      $data = $request->all();
+      $faker = Faker::create();
+      $finalUsers = Array();
+      for($i = 0; $i < $data['num_users']; $i++){
+        $tempUser = Array();
+        $tempUser['name'] = $faker->name;
+        $tempUser['address'] = $faker->address;
+        if(isset($data["birthdate"])){
+          $tempUser['birthdate'] = $faker->date;
+        }
+        if(isset($data["profile"])){
+          $tempUser['profile'] = $faker->text;
+        }
+          $finalUsers[$i] = $tempUser;
+      }
+
+      return view('user.show')->with(['data' => $data, 'finalUsers' => $finalUsers]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
